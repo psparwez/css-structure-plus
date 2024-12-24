@@ -1,0 +1,54 @@
+{
+  "name": "css-structure-plus",
+  "displayName": "CSS Structure Plus",
+  "description": "A VS Code extension to format and structure CSS properties into categorized groups for better readability.",
+  "version": "0.0.2",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Linters"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "css-structure-plus.formatCSS",
+        "title": "Format CSS with Structure Plus",
+        "category": "CSS Structure Plus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "css-structure-plus.formatCSS",
+          "group": "navigation",
+          "when": "editorLangId == css || editorLangId == scss || editorLangId == less"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext .ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.x",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
+    "typescript": "^5.2.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
